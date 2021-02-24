@@ -6,7 +6,7 @@ import json
 
 
 def ConnectDB(NameDB=0):
-    filejs = open('/home/mberezovskiy/project/Creds/CredentialsDB.json')
+    filejs = open('/home/mberezovskiy/Creds/CredentialsDB.json')
     Creds = json.loads(filejs.read())
     filejs.close()
     if NameDB==0:

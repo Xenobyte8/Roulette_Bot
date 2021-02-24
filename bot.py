@@ -9,7 +9,7 @@ from Challengelogic import Challenge
 sys.path.append('/home/mberezovskiy/project/DB')
 import dblogic
 import random
-filecreds = open('/home/mberezovskiy/project/Creds/CredentialsBot.json')
+filecreds = open('/home/mberezovskiy/Creds/CredentialsBot.json')
 CredsBot = json.loads(filecreds.read())
 bot = telebot.TeleBot(CredsBot["SecretBotKey"])
 #challenges= []
