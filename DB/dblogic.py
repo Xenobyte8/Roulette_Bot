@@ -3,7 +3,7 @@ import mysql.connector
 import datetime
 import json
 
-
+#Шальной коммент
 
 def ConnectDB(NameDB=0):
     filejs = open('/home/mberezovskiy/Creds/CredentialsDB.json')
