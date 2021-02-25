@@ -5,16 +5,17 @@ import sys
 import datetime
 import json
 import emoji
-from Challengelogic import Challenge
 sys.path.append('/home/mberezovskiy/project/DB')
 import dblogic
 import random
+
+
 filecreds = open('/home/mberezovskiy/Creds/CredentialsBot.json')
 CredsBot = json.loads(filecreds.read())
 bot = telebot.TeleBot(CredsBot["SecretBotKey"])
-#challenges= []
+
 date= datetime.datetime.today()
-print(date.date())
+
 
 
 ##Методы 
@@ -29,9 +30,6 @@ def GetChallenge(IdChat):
     return 0
           
 def CreateChallenge(IdChat, IdPerson, NamePerson):
-    #challenges.append(Challenge(IdChat, IdPerson, NamePerson))
-    #print("New Challenge! "+ str(len(challenges)-1))
-    #return (len(challenges)-1)
     return dblogic.AddChallenge(dblogic.ConnectDB("db_Pidor"), IdChat, IdPerson, str(NamePerson))
 
     
