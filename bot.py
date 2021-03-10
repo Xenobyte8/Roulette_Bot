@@ -7,6 +7,7 @@ import json
 import emoji
 sys.path.append('/home/mberezovskiy/project/DB')
 import dblogic
+from time import sleep
 import random
 
 
@@ -69,7 +70,9 @@ def spisok_message(message):
    
 def poll():
      try:  bot.polling()
-     except : poll()
+     except :
+         time.sleep(5)
+         poll()
 
 @bot.message_handler(commands=['pidor'])
 def pidor_message(message):
