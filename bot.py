@@ -71,7 +71,7 @@ def spisok_message(message):
 def poll():
      try:  bot.polling()
      except :
-         time.sleep(5)
+         sleep(5)
          poll()
 
 @bot.message_handler(commands=['pidor'])
