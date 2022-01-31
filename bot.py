@@ -58,6 +58,10 @@ def register_message(message):
 @bot.message_handler(commands=['champions'])
 def spisok_message(message):
     text=''
+    ChampionsTexts=GoogleConnector.GetChampions()
+    for each in ChampionsTexts[0]:
+        bot.send_message(message.chat.id, each)
+        sleep(1)
     answer = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)
     spisok=answer[0]
     if spisok == 0 : bot.send_message(message.chat.id, "Не спеши, петушок")
@@ -69,7 +73,7 @@ def spisok_message(message):
             text+=str(each[1])
             text+=' \n'
         bot.send_message(message.chat.id, text)
-        text = "Но вообще пидор дня у нас [%s](tg://user?id=%s)"
+        text = ChampionsTexts[1]+ " [%s](tg://user?id=%s)"
         val=(str(answer[2]), str(answer[1]))
         bot.send_message(message.chat.id, text % val, parse_mode='Markdown')
 
@@ -85,10 +89,14 @@ def pidor_message(message):
     spisok = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)
     if spisok==0: bot.send_message(message.chat.id, "Не спеши, петушок")
     else:
+        PidorTexts=GoogleConnector.GetPidorTexts()
         pidor = random.randint(0, len(spisok)-1)
         result = dblogic.PushScore(dblogic.ConnectDB("db_Pidor"), message.chat.id, spisok[pidor][2])
         val=(str(spisok[pidor][0]), str(spisok[pidor][2]))
-        text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
+        for each in PidorTexts[0]:
+            bot.send_message(message.chat.id, each)
+            sleep(1)
+        text = PidorTexts[1] + " [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
         if result == 1: 
             bot.send_message(message.chat.id, text % val, parse_mode='Markdown')
             bot.send_message(message.chat.id, "Таков путь")
