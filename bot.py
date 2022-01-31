@@ -70,10 +70,14 @@ def spisok_message(message):
             text+=' \n'
         bot.send_message(message.chat.id, text)
         time.sleep(1.5)
-        text = "Но вообще пидор дня у нас [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
+        text = "Но вообще пидор дня у нас [%s](tg://user?id=%s)"
         val=(answer[2],answer[1])
         bot.send_message(message.chat.id, text % val, parse_mode='Markdown')
         bot.send_message(message.chat.id, val)
+        bot.send_message(message.chat.id, "First answer")
+        bot.send_message(message.chat.id, answer[1])
+        bot.send_message(message.chat.id, "Second answer")
+        bot.send_message(message.chat.id, answer[2])
 
    
 def poll():
