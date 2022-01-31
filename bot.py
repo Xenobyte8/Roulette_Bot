@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import telebot
-import time
-import os
 import sys
 import datetime
 import json
 import emoji
 sys.path.append('/home/mberezovskiy/project/DB')
 import dblogic
+sys.path.append('/home/mberezovskiy/project/GoogleTable')
+import GoogleConnector.
 from time import sleep
 import random
 
