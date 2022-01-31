@@ -1,7 +1,7 @@
 import pygsheets
 
 def GetTexts():
-    auth = pygsheets.authorize()
+    auth = pygsheets.authorize('/home/mberezovskiy/Creds/CredentialsGoogle.json')
     Sheet=auth.open('PidorTexts')
     PidorTextsSheet=Sheet.worksheet_by_title('Pidor')
     ChampionsSheet=Sheet.worksheet_by_title('Champions')
