@@ -84,8 +84,8 @@ def pidor_message(message):
         val=(str(spisok[pidor][0]), str(spisok[pidor][2]))
         text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
         if result == 1:
-		 bot.send_message(message.chat.id, text % val, parse_mode='Markdown') 
-		 bot.send_message(message.chat.id, "Таков путь")
+		    bot.send_message(message.chat.id, text % val, parse_mode='Markdown') 
+		    bot.send_message(message.chat.id, "Таков путь")
         else: bot.send_message(message.chat.id, "Кажется, сегодня у нас уже есть пидарок"+ " \xF0\x9F\x9A\x80")
 
 @bot.message_handler(commands=['test'])
