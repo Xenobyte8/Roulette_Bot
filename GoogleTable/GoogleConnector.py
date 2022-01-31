@@ -16,5 +16,5 @@ def GetTexts():
 
 a=GetTexts()
 print(a[1])
-if a[1]==None:
+if not a[1]:
     print ("Empty")
