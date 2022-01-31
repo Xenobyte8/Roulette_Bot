@@ -115,8 +115,9 @@ def GetResult(DB_Connector, ChatId):
     ChallengeId=IsExist[0]
     mycursor.execute("select PersonName, Score, TelegaId from Challenger where ChallengeId=" + str(ChallengeId))
     ChallengeInfo = mycursor.fetchall()
-    CurrentPidor=str(mycursor.execute("select CurrentPidor from Challenge where ChatId=" + str(ChatId)))
-    Result=(ChallengeInfo, CurrentPidor)
+    CurrentPidorID=str(mycursor.execute("select CurrentPidor from Challenge where ChatId=" + str(ChatId)))
+    CurrentPidorName=str("select PersonName from Challenger where ChallengeID="+ str(ChallengeId) +"and TelegaID = (select CurrentPidor from Challenge where ChatId=" + str(ChatId)+")")
+    Result=(ChallengeInfo, CurrentPidorID)
     return Result
     
 

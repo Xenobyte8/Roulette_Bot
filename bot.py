@@ -67,7 +67,7 @@ def spisok_message(message):
             text+=str(each[1])
             text+=' \n'
         bot.send_message(message.chat.id, text)
-        text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
+       # text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
 
    
 def poll():
