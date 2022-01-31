@@ -100,6 +100,9 @@ def PushScore(DB_Connector, ChatId, TelegaId):
     today = datetime.datetime.today()
     value = ( str(today), ChallengeId)
     mycursor.execute(sql % value)
+    sql = "update Challenge set CurrentPidor=\"%s\" where ChallengeId=%d"
+    value = (TelegaId, ChallengeId)
+    mycursor.execute(sql % value)
     DB_Connector.commit()
     ShowMeTheDB(DB_Connector)
     return 1
