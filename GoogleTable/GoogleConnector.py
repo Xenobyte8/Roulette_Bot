@@ -15,3 +15,5 @@ def GetTexts():
 
 a=GetTexts()
 print(a[1])
+if a[1]=null:
+    print ("Empty")

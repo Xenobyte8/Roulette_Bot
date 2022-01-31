@@ -7,7 +7,7 @@ import emoji
 sys.path.append('/home/mberezovskiy/project/DB')
 import dblogic
 sys.path.append('/home/mberezovskiy/project/GoogleTable')
-import GoogleConnector.
+import GoogleConnector
 from time import sleep
 import random
 
