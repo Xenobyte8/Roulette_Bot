@@ -18,4 +18,4 @@ def GetTexts():
 
 a=GetTexts()
 for i in a:
-    print(i)
+    print(i)[0]
