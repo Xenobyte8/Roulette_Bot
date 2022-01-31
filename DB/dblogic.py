@@ -48,7 +48,6 @@ def AddChallenge(DB_Connector, ChatId, TelegaId, PersonName):
     DB_Connector.commit()
     mycursor.execute("select max(ChallengeId) from Challenge")
     ChallengeId=mycursor.fetchone()
-    print(type(ChallengeId[0]))
     sql = "insert into Challenger (ChallengeID, TelegaId, PersonName) values (%d, %d, %r)"
     value=(ChallengeId[0], TelegaId, PersonName)
     mycursor.execute(sql % value)
@@ -60,17 +59,14 @@ def ShowMeTheDB(DB_Connector):
     mycursor = DB_Connector.cursor()
     mycursor.execute("select * from Challenge")
     text = mycursor.fetchall()
-    print (text)
     mycursor.execute("select * from Challenger")
     text = mycursor.fetchall()
-    print (text)
 
 
 def AddChallenger(DB_Connector, ChatId, TelegaId, PersonName):
     mycursor = DB_Connector.cursor()
     mycursor.execute("select ChallengeId from Challenge where ChatId=" + str(ChatId))
     IsExist = mycursor.fetchone()
-    print(IsExist)
     if not IsExist: return 0 
     ChallengeId=IsExist[0]
     sql = "select ChallengerId from Challenger  where ChallengeId = %d and TelegaId = %d"
@@ -120,7 +116,6 @@ def GetResult(DB_Connector, ChatId):
     mycursor.execute("select PersonName from Challenger where ChallengeID="+ str(ChallengeId) +" and TelegaID = (select CurrentPidor from Challenge where ChatId=" + str(ChatId)+")")
     CurrentPidorName=mycursor.fetchone()
     Result=(ChallengeInfo, CurrentPidorID[0], CurrentPidorName[0])
-    print (Result)
     return Result
     
 

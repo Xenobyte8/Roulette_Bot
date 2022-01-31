@@ -106,16 +106,5 @@ def pidor_message(message):
     val=("you", "119385217")
     text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
     bot.send_message(message.chat.id, text % val, parse_mode='Markdown')
-    print('azazaza')
-
-#@bot.message_handler()
-#def echo_message(message):
-#    print(message.text)
-#    print('ты пЁс')
-
-
-
-
-#test
 
 poll()
