@@ -25,12 +25,9 @@ def GetChampions():
     if not Champions[0]:
         Champions=["Я хуй знает, кто поудалял все смехуечки, но сегодня пидор "]
     Answer = Champions[random.randint(0, len(Champions)-1)]
-    return(Answer)
+    LastString=Answer.pop()
+    return(Answer, LastString)
 
 print(GetChampions())
 
 
-a=[1,2,3]
-b=a.pop()
-print(b)
-print(a)
