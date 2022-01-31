@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import pygsheets
 
 def GetTexts():
@@ -15,5 +16,5 @@ def GetTexts():
 
 a=GetTexts()
 print(a[1])
-if a[1]==null:
+if a[1]==NULL:
     print ("Empty")
