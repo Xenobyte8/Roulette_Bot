@@ -12,7 +12,7 @@ def GetTexts():
         PidorTexts=["Я хуй знает, кто поудалял все смехуечки, но пусть пидор будет "]
     Champions=ChampionsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
     if not Champions[0]:
-        PidorTexts=["Я хуй знает, кто поудалял все смехуечки, но сегодня пидор "]
+        Champions=["Я хуй знает, кто поудалял все смехуечки, но сегодня пидор "]
 
     return(PidorTexts, Champions)
 
