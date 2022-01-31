@@ -7,6 +7,6 @@ def GetTexts():
     Champions=Sheet.worksheet_by_title('Champions')
     print (PidorTexts.get_all_records())
     print ("ty pidor")
-    print (PidorTexts.cell('A1')
+    print (PidorTexts.cell('A1'))
 
 GetTexts()
