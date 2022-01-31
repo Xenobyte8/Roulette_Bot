@@ -57,7 +57,8 @@ def register_message(message):
 @bot.message_handler(commands=['champions'])
 def spisok_message(message):
     text=''
-    spisok = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)[0]
+    answer = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)
+    spisok=answer[0]
     if spisok == 0 : bot.send_message(message.chat.id, "Не спеши, петушок")
     else:
         spisok = sorted(spisok, key = lambda pidor: pidor[1], reverse=True)
@@ -67,7 +68,7 @@ def spisok_message(message):
             text+=str(each[1])
             text+=' \n'
         bot.send_message(message.chat.id, text)
-        bot.send_message(message.chat.id, spisok[1])
+        bot.send_message(message.chat.id, answer[1])
        # text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
 
    
