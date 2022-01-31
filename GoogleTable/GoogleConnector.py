@@ -14,3 +14,4 @@ def GetTexts():
     return(PidorTexts, Champions)
 
 a=GetTexts()
+print(a[1])
