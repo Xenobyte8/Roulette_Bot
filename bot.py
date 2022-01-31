@@ -72,7 +72,6 @@ def spisok_message(message):
         text = "Но вообще пидор дня у нас [%s](tg://user?id=%s)"
         val=(str(answer[2]), str(answer[1]))
         bot.send_message(message.chat.id, text % val, parse_mode='Markdown')
-        bot.send_message(message.chat.id, val)
 
    
 def poll():
