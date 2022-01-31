@@ -16,5 +16,5 @@ def GetTexts():
 
 a=GetTexts()
 print(a[1])
-if not a[1]:
+if not a[1][0]:
     print ("Empty")
