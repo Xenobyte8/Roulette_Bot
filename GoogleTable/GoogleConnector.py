@@ -1,7 +1,10 @@
 import pygsheets
 
-def test():
+def GetTexts():
     auth = pygsheets.authorize()
-    sh = auth.create(data[0], folder_name="testaurus")
+    Sheet=auth.open('PidorTexts')
+    PidorTexts=Sheet.worksheet_by_title('Pidor')
+    Champions=Sheet.worksheet_by_title('Champions')
+    print (PidorTexts.get_all_records())
 
-test()
+GetTexts()
