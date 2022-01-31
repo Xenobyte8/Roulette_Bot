@@ -3,7 +3,6 @@ import telebot
 import sys
 import datetime
 import json
-import emoji
 sys.path.append('/home/mberezovskiy/project/DB')
 import dblogic
 sys.path.append('/home/mberezovskiy/project/GoogleTable')
@@ -89,18 +88,18 @@ def pidor_message(message):
     spisok = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)
     if spisok==0: bot.send_message(message.chat.id, "Не спеши, петушок")
     else:
-        PidorTexts=GoogleConnector.GetPidorTexts()
         pidor = random.randint(0, len(spisok)-1)
         result = dblogic.PushScore(dblogic.ConnectDB("db_Pidor"), message.chat.id, spisok[pidor][2])
         val=(str(spisok[pidor][0]), str(spisok[pidor][2]))
-        for each in PidorTexts[0]:
-            bot.send_message(message.chat.id, each)
-            sleep(1)
-        text = PidorTexts[1] + " [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
-        if result == 1: 
+        if result == 1:
+            PidorTexts=GoogleConnector.GetPidorTexts()
+            text = PidorTexts[1] + " [%s](tg://user?id=%s)"
+            for each in PidorTexts[0]:
+                bot.send_message(message.chat.id, each)
+                sleep(1) 
             bot.send_message(message.chat.id, text % val, parse_mode='Markdown')
             bot.send_message(message.chat.id, "Таков путь")
-        else: bot.send_message(message.chat.id, "Кажется, сегодня у нас уже есть пидарок"+ " \xF0\x9F\x9A\x80")
+        else: bot.send_message(message.chat.id, "Кажется, сегодня у нас уже есть пидарок")
 
 @bot.message_handler(commands=['test'])
 def pidor_message(message):
