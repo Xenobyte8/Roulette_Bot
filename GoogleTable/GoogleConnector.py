@@ -8,13 +8,14 @@ def GetTexts():
     ChampionsSheet=Sheet.worksheet_by_title('Champions')
     PidorTexts=PidorTextsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
     PidorTexts=PidorTextsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
+    if not PidorTexts[0]:
+        PidorTexts=["Я хуй знает, кто поудалял все смехуечки, но пусть пидор будет "]
     Champions=ChampionsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
-    for i in PidorTexts:
-        for j in i:
-            print(j)
+    if not Champions[0]:
+        PidorTexts=["Я хуй знает, кто поудалял все смехуечки, но сегодня пидор "]
+
     return(PidorTexts, Champions)
 
 a=GetTexts()
-print(a[1])
-if not a[1][0]:
-    print ("Empty")
+for i in a:
+    print(i)
