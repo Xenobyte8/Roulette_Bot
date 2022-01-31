@@ -67,6 +67,7 @@ def spisok_message(message):
             text+=str(each[1])
             text+=' \n'
         bot.send_message(message.chat.id, text)
+        bot.send_message(message.chat.id, spisok[1])
        # text = "А петушок у нас сегодня [%s](tg://user?id=%s)" + " \xF0\x9F\x90\xB6"
 
    
