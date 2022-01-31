@@ -59,6 +59,8 @@ def register_message(message):
 def spisok_message(message):
     text=''
     answer = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)
+    bot.send_message(message.chat.id, "Second answer")
+    bot.send_message(message.chat.id, answer[2])
     spisok=answer[0]
     if spisok == 0 : bot.send_message(message.chat.id, "Не спеши, петушок")
     else:
