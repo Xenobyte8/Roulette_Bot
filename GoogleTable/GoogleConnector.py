@@ -15,7 +15,3 @@ def GetTexts():
         Champions=["Я хуй знает, кто поудалял все смехуечки, но сегодня пидор "]
 
     return(PidorTexts, Champions)
-
-a=GetTexts()
-for i in a:
-    print(i)[0]
