@@ -28,3 +28,9 @@ def GetChampions():
     return(Answer)
 
 print(GetChampions())
+
+
+a=[1,2,3]
+b=a.pop()
+print(b)
+print(a)
