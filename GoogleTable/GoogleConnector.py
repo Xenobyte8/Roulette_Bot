@@ -6,9 +6,11 @@ def GetTexts():
     PidorTextsSheet=Sheet.worksheet_by_title('Pidor')
     ChampionsSheet=Sheet.worksheet_by_title('Champions')
     PidorTexts=PidorTextsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
+    PidorTexts=PidorTextsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
+    Champions=ChampionsSheet.get_all_values(include_tailing_empty=False, include_tailing_empty_rows=False)
     for i in PidorTexts:
         for j in i:
             print(j)
-    #print (PidorTexts)
+    return(PidorTexts, Champions)
 
-GetTexts()
+a=GetTexts()
