@@ -85,7 +85,7 @@ def poll():
 
 @bot.message_handler(commands=['pidor'])
 def pidor_message(message):
-    spisok = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)
+    spisok = dblogic.GetResult(dblogic.ConnectDB("db_Pidor"), message.chat.id)[0]
     if spisok==0: bot.send_message(message.chat.id, "Не спеши, петушок")
     else:
         pidor = random.randint(0, len(spisok)-1)
