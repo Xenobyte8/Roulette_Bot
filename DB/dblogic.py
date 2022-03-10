@@ -115,7 +115,10 @@ def GetResult(DB_Connector, ChatId):
     CurrentPidorID=mycursor.fetchone()
     mycursor.execute("select PersonName from Challenger where ChallengeID="+ str(ChallengeId) +" and TelegaID = (select CurrentPidor from Challenge where ChatId=" + str(ChatId)+")")
     CurrentPidorName=mycursor.fetchone()
-    Result=(ChallengeInfo, CurrentPidorID[0], CurrentPidorName[0])
+    try:
+        Result=(ChallengeInfo, CurrentPidorID[0], CurrentPidorName[0])
+    except:
+        Result=(ChallengeInfo, 0, 0)
     return Result
     
 
